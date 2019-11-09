@@ -20,19 +20,19 @@ start = time.time()
 
 
 # list of all files from nyc.gov
-files = ['https://www1.nyc.gov/assets/rentguidelinesboard/pdf/2016manhattanbldgs.pdf',
-         'https://www1.nyc.gov/assets/rentguidelinesboard/pdf/2016brooklynbldgs.pdf',
-         'https://www1.nyc.gov/assets/rentguidelinesboard/pdf/2016bronxbldgs.pdf',
-         'https://www1.nyc.gov/assets/rentguidelinesboard/pdf/2016queensbldgs.pdf',
-         'https://www1.nyc.gov/assets/rentguidelinesboard/pdf/2016statenislbldgs.pdf'
+files = ['https://www1.nyc.gov/assets/rentguidelinesboard/pdf/2017manhattanbldgs.pdf',
+         'https://www1.nyc.gov/assets/rentguidelinesboard/pdf/2017brooklynbldgs.pdf',
+         'https://www1.nyc.gov/assets/rentguidelinesboard/pdf/2017bronxbldgs.pdf',
+         'https://www1.nyc.gov/assets/rentguidelinesboard/pdf/2017queensbldgs.pdf',
+         'https://www1.nyc.gov/assets/rentguidelinesboard/pdf/2017statenislbldgs.pdf'
         ]
 
 #list of files broken down per borough
-mn_file = 'https://www1.nyc.gov/assets/rentguidelinesboard/pdf/2016manhattanbldgs.pdf'
-bk_file = 'https://www1.nyc.gov/assets/rentguidelinesboard/pdf/2016brooklynbldgs.pdf'  
-bx_file = 'https://www1.nyc.gov/assets/rentguidelinesboard/pdf/2016bronxbldgs.pdf'  
-qn_file = 'https://www1.nyc.gov/assets/rentguidelinesboard/pdf/2016queensbldgs.pdf'  
-si_file = 'https://www1.nyc.gov/assets/rentguidelinesboard/pdf/2016statenislbldgs.pdf'  
+mn_file = 'https://www1.nyc.gov/assets/rentguidelinesboard/pdf/2017manhattanbldgs.pdf'
+bk_file = 'https://www1.nyc.gov/assets/rentguidelinesboard/pdf/2017brooklynbldgs.pdf'  
+bx_file = 'https://www1.nyc.gov/assets/rentguidelinesboard/pdf/2017bronxbldgs.pdf'  
+qn_file = 'https://www1.nyc.gov/assets/rentguidelinesboard/pdf/2017queensbldgs.pdf'  
+si_file = 'https://www1.nyc.gov/assets/rentguidelinesboard/pdf/2017statenislbldgs.pdf'  
 
 #save column headers for pandas later
 column_headers = ["ZIP", "BLDGNO1", "STREET1", "STSUFX1", "CITY", "STATUS1", "STATUS2",
