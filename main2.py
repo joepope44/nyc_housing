@@ -83,7 +83,7 @@ for line in text2:
 #print('\n'.join(l))
 
 zip_re = re.compile(r'(^\d{5})')
-st_re = re.compile(r'^\w+\s(\w+)')
+st_re = re.compile(r'^\w+\s((?=\w+\sTO)\w+\s\w+\s\w+|\w+)')
 status_re = re.compile(r'((MULTIPLE DWELLING (A|B))(.*)\s\d{1,6}\s\d{1,6}\Z)')
 block_re = re.compile(r'(\d{1,6})\s\d{1,6}\Z')
 lot_re = re.compile(r'(\d{1,6}\Z)')
