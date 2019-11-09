@@ -171,7 +171,7 @@ df.columns = ["ZIP","STREET_NO","STATUS1","STATUS2","STATUS3","BLOCK","LOT"]
 df["ZIP"] = df["ZIP"].astype('int64')
 
 #import list of nyc zips-> nyc boroughs
-zip_df = pd.read_excel('C:/Users/Joseph Pope/iCloudDrive/nyc_housing/ny_zips.xlsx')
+zip_df = pd.read_excel('./ny_zips.xlsx')
 
 #%%
 #merge zip data in order to get Borough data
@@ -186,7 +186,7 @@ df["CITY CODE"] = df["BOROUGH"].map(citycode)
 df["BBL"] = df["CITY CODE"].astype(str) + '-' + df["BLOCK"] + '-' + df["LOT"]
 #%%
 
-outpath = "C:/Users/Joseph Pope/iCloudDrive/nyc_housing/nyc_pdf_scrape.xlsx"
+outpath = "./nyc_pdf_scrape.xlsx"
 nyc_test = df.to_excel(outpath)
 
 end = time.time()
