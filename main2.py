@@ -20,19 +20,19 @@ start = time.time()
 
 
 # list of all files from nyc.gov
-files = ['https://www1.nyc.gov/assets/rentguidelinesboard/pdf/2016manhattanbldgs.pdf',
-         'https://www1.nyc.gov/assets/rentguidelinesboard/pdf/2016brooklynbldgs.pdf',
-         'https://www1.nyc.gov/assets/rentguidelinesboard/pdf/2016bronxbldgs.pdf',
-         'https://www1.nyc.gov/assets/rentguidelinesboard/pdf/2016queensbldgs.pdf',
-         'https://www1.nyc.gov/assets/rentguidelinesboard/pdf/2016statenislbldgs.pdf'
+files = ['https://www1.nyc.gov/assets/rentguidelinesboard/pdf/2017manhattanbldgs.pdf',
+         'https://www1.nyc.gov/assets/rentguidelinesboard/pdf/2017brooklynbldgs.pdf',
+         'https://www1.nyc.gov/assets/rentguidelinesboard/pdf/2017bronxbldgs.pdf',
+         'https://www1.nyc.gov/assets/rentguidelinesboard/pdf/2017queensbldgs.pdf',
+         'https://www1.nyc.gov/assets/rentguidelinesboard/pdf/2017statenislbldgs.pdf'
         ]
 
 #list of files broken down per borough
-mn_file = 'https://www1.nyc.gov/assets/rentguidelinesboard/pdf/2016manhattanbldgs.pdf'
-bk_file = 'https://www1.nyc.gov/assets/rentguidelinesboard/pdf/2016brooklynbldgs.pdf'  
-bx_file = 'https://www1.nyc.gov/assets/rentguidelinesboard/pdf/2016bronxbldgs.pdf'  
-qn_file = 'https://www1.nyc.gov/assets/rentguidelinesboard/pdf/2016queensbldgs.pdf'  
-si_file = 'https://www1.nyc.gov/assets/rentguidelinesboard/pdf/2016statenislbldgs.pdf'  
+mn_file = 'https://www1.nyc.gov/assets/rentguidelinesboard/pdf/2017manhattanbldgs.pdf'
+bk_file = 'https://www1.nyc.gov/assets/rentguidelinesboard/pdf/2017brooklynbldgs.pdf'  
+bx_file = 'https://www1.nyc.gov/assets/rentguidelinesboard/pdf/2017bronxbldgs.pdf'  
+qn_file = 'https://www1.nyc.gov/assets/rentguidelinesboard/pdf/2017queensbldgs.pdf'  
+si_file = 'https://www1.nyc.gov/assets/rentguidelinesboard/pdf/2017statenislbldgs.pdf'  
 
 #save column headers for pandas later
 column_headers = ["ZIP", "BLDGNO1", "STREET1", "STSUFX1", "CITY", "STATUS1", "STATUS2",
@@ -83,7 +83,7 @@ for line in text2:
 #print('\n'.join(l))
 
 zip_re = re.compile(r'(^\d{5})')
-st_re = re.compile(r'^\w+\s(\w+)')
+st_re = re.compile(r'^\w+\s((?=\w+\sTO)\w+\s\w+\s\w+|\w+)')
 status_re = re.compile(r'((MULTIPLE DWELLING (A|B))(.*)\s\d{1,6}\s\d{1,6}\Z)')
 block_re = re.compile(r'(\d{1,6})\s\d{1,6}\Z')
 lot_re = re.compile(r'(\d{1,6}\Z)')
@@ -171,7 +171,7 @@ df.columns = ["ZIP","STREET_NO","STATUS1","STATUS2","STATUS3","BLOCK","LOT"]
 df["ZIP"] = df["ZIP"].astype('int64')
 
 #import list of nyc zips-> nyc boroughs
-zip_df = pd.read_excel('C:/Users/Joseph Pope/iCloudDrive/nyc_housing/ny_zips.xlsx')
+zip_df = pd.read_excel('./ny_zips.xlsx')
 
 #%%
 #merge zip data in order to get Borough data
@@ -186,7 +186,7 @@ df["CITY CODE"] = df["BOROUGH"].map(citycode)
 df["BBL"] = df["CITY CODE"].astype(str) + '-' + df["BLOCK"] + '-' + df["LOT"]
 #%%
 
-outpath = "C:/Users/Joseph Pope/iCloudDrive/nyc_housing/nyc_pdf_scrape.xlsx"
+outpath = "./nyc_pdf_scrape.xlsx"
 nyc_test = df.to_excel(outpath)
 
 end = time.time()
